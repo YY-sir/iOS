@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 class SecondCollectionView: UIView {
     private var collectionView:UICollectionView!
+    var data = [["01","02","03","04","05","06","07","08"],["11","12","13","14","15","16","17","18"],["21","22","23","24","25","26","27","28"]]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,11 +23,14 @@ class SecondCollectionView: UIView {
     
     func setupCollectionView(){
         let layout = UICollectionViewFlowLayout()
-//        layout.itemSize = CGSize(width: 90, height: 50)
+        layout.itemSize = CGSize(width: 90, height: 50)
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 25
         layout.minimumInteritemSpacing = 40
+        //设置section的属性
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 25, right: 0)
+        layout.headerReferenceSize = CGSize(width: 375, height: 50)
+        layout.footerReferenceSize = CGSize(width: 375, height: 100)
         
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), collectionViewLayout: layout)
         
@@ -36,12 +40,14 @@ class SecondCollectionView: UIView {
         
         //注册collectionView
         collectionView.register(SecondPageCell.self, forCellWithReuseIdentifier: SecondPageCell.reused)
+        collectionView.register(SecondPageSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SecondPageSectionHeader.reused)
+        collectionView.register(SecondPageSectionFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: SecondPageSectionFooter.reused)
         self.addSubview(collectionView)
         
     }
 }
 
-extension SecondCollectionView: UICollectionViewDataSource, UICollectionViewDelegate {
+extension SecondCollectionView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }
@@ -49,21 +55,54 @@ extension SecondCollectionView: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
     }
-    
+    //添加cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SecondPageCell.reused, for: indexPath) as!SecondPageCell
         cell.backgroundColor = UIColor.white
-//        cell.snp.makeConstraints {(make) in
-//            make.height.equalTo(50)
-//            make.width.equalTo(30)
-//        }
-        cell.frame.size = CGSize(width: 100, height: 60)
+        cell.frame.size = CGSize(width: 60, height: 60)
         print("---\(indexPath[0])---\(indexPath[1])---")
+        
+        let b1 = UIButton()
+        b1.backgroundColor = UIColor.blue
+        b1.setTitle(self.data[indexPath[0]][indexPath[1]], for: .normal)
+        cell.addSubview(b1)
+        b1.snp.makeConstraints {(make) in
+            make.width.equalTo(40)
+            make.height.equalTo(30)
+            make.center.equalToSuperview()
+        }
         
         return cell
     }
+    //添加section头尾
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        print("---\(kind)---")
+        print("---\(UICollectionView.elementKindSectionHeader)---")
+        
+        var reusableView: UICollectionReusableView!
+        if kind == UICollectionView.elementKindSectionHeader{
+            
+            reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SecondPageSectionHeader.reused, for: indexPath) as! SecondPageSectionHeader
+            (reusableView as!SecondPageSectionHeader).label.text = "这是Header"
+            (reusableView as!SecondPageSectionHeader).label.snp.makeConstraints {(make) in
+                make.width.height.equalToSuperview()
+            }
+            
+        }else if kind == UICollectionView.elementKindSectionFooter{
+            print("111")
+            reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SecondPageSectionFooter.reused, for: indexPath) as! SecondPageSectionFooter
+            (reusableView as!SecondPageSectionFooter).label.text = "这是Footer"
+            (reusableView as!SecondPageSectionFooter).label.snp.makeConstraints {(make) in
+                make.width.height.equalToSuperview()
+            }
+        }
+        
+        return reusableView
+    }
+    
 }
-
+//Cell的Viewclass定义
 private class SecondPageCell: UICollectionViewCell {
     static let reused: String = "SecondPageCellIdentify"
     private let b1 = UIButton()
@@ -78,16 +117,48 @@ private class SecondPageCell: UICollectionViewCell {
     
     private func setupView(){
         self.backgroundColor = UIColor.blue
-        self.addSubview(b1)
+    }
+    
+}
+
+//Header区域View
+private class SecondPageSectionHeader: UICollectionReusableView {
+    static let reused: String = "SecondPageSectionHeaderIdentify"
+    var label: UILabel!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    
+        label = UILabel.init()
+        label.text = "这是header"
+        label.textColor = UIColor.black
+        label.backgroundColor = UIColor.yellow
+        self.addSubview(label)
         
-        self.b1.setTitle("111", for: .normal)
-        self.b1.setTitleColor(UIColor.black, for: .normal)
-        self.b1.backgroundColor = UIColor.blue
-        self.b1.snp.makeConstraints {(make) in
-            make.width.height.equalTo(30)
-            make.center.equalTo(self)
-        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+//Footer区域View
+private class SecondPageSectionFooter: UICollectionReusableView {
+    static let reused: String = "SecondPageSectionFooterIdentify"
+    var label: UILabel!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    
+        label = UILabel.init()
+        label.textColor = UIColor.black
+        label.backgroundColor = UIColor.red
+        self.addSubview(label)
         
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
