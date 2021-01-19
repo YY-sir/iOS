@@ -22,7 +22,7 @@ class SecondCollectionView: UIView {
     
     func setupCollectionView(){
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 90, height: 50)
+//        layout.itemSize = CGSize(width: 90, height: 50)
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 25
         layout.minimumInteritemSpacing = 40
@@ -57,6 +57,7 @@ extension SecondCollectionView: UICollectionViewDataSource, UICollectionViewDele
 //            make.height.equalTo(50)
 //            make.width.equalTo(30)
 //        }
+        cell.frame.size = CGSize(width: 100, height: 60)
         print("---\(indexPath[0])---\(indexPath[1])---")
         
         return cell
