@@ -58,6 +58,12 @@ extension SecondCollectionView: UICollectionViewDataSource, UICollectionViewDele
     //添加cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SecondPageCell.reused, for: indexPath) as!SecondPageCell
+        
+        //去除cell原有的内容
+        for subView in cell.subviews{
+            subView.removeFromSuperview()
+        }
+        
         cell.backgroundColor = UIColor.white
         cell.frame.size = CGSize(width: 60, height: 60)
         print("---\(indexPath[0])---\(indexPath[1])---")
@@ -65,15 +71,31 @@ extension SecondCollectionView: UICollectionViewDataSource, UICollectionViewDele
         let b1 = UIButton()
         b1.backgroundColor = UIColor.blue
         b1.setTitle(self.data[indexPath[0]][indexPath[1]], for: .normal)
+        b1.addTarget(self, action: #selector(cellButtonTarget(sender:)), for: .touchUpInside)
         cell.addSubview(b1)
         b1.snp.makeConstraints {(make) in
-            make.width.equalTo(40)
-            make.height.equalTo(30)
-            make.center.equalToSuperview()
+            make.size.equalToSuperview()
         }
         
         return cell
     }
+    //cell里面button对应的点击事件
+    @objc func cellButtonTarget(sender: UIButton){
+        //获取cell的定位信息
+        let cell: UICollectionViewCell = sender.superview as! UICollectionViewCell
+        let cellIndexPath = self.collectionView.indexPath(for: cell)
+        print("点击对应的框框\(String(describing: cellIndexPath))")
+        //
+        if cellIndexPath == [0,0]{
+            let cvc1 = CollectionViewController1()
+            self.firstViewController()?.navigationController?.pushViewController(cvc1, animated: true)
+        }else if cellIndexPath == [0, 1]{
+            let cvc2 = CollectionViewController2()
+            self.firstViewController()?.navigationController?.pushViewController(cvc2, animated: true)
+        }
+        
+    }
+    
     //添加section头尾
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
@@ -101,7 +123,13 @@ extension SecondCollectionView: UICollectionViewDataSource, UICollectionViewDele
         return reusableView
     }
     
+    //
+    
+        
 }
+
+
+
 //Cell的Viewclass定义
 private class SecondPageCell: UICollectionViewCell {
     static let reused: String = "SecondPageCellIdentify"
@@ -163,3 +191,17 @@ private class SecondPageSectionFooter: UICollectionReusableView {
     
 }
 
+//扩展UIView，找到最上层UIViewController
+extension UIView {
+    //返回该view所在VC
+    func firstViewController() -> UIViewController? {
+        for view in sequence(first: self.superview, next: { $0?.superview }) {
+            if let responder = view?.next {
+                if responder.isKind(of: UIViewController.self){
+                    return responder as? UIViewController
+                }
+            }
+        }
+        return nil
+    }
+}

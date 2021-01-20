@@ -10,6 +10,10 @@
 		040B166025B18C5500F01948 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B165F25B18C5500F01948 /* Common.swift */; };
 		0455FAF325B51AE100DEC598 /* SecondPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455FAF225B51AE100DEC598 /* SecondPage.swift */; };
 		0455FAF625B556C800DEC598 /* SecondCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455FAF525B556C800DEC598 /* SecondCollectionView.swift */; };
+		0455FB0025B6AD0600DEC598 /* CollectionView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455FAFF25B6AD0600DEC598 /* CollectionView1.swift */; };
+		0455FB0425B6AD2700DEC598 /* CollectionViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455FB0325B6AD2700DEC598 /* CollectionViewController1.swift */; };
+		0455FB0825B6DEC300DEC598 /* UICollectionViewFlowLayout1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455FB0725B6DEC300DEC598 /* UICollectionViewFlowLayout1.swift */; };
+		0455FB0C25B6E1ED00DEC598 /* CollectionViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455FB0B25B6E1ED00DEC598 /* CollectionViewController2.swift */; };
 		04FA218625AFF2C900402B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA218525AFF2C900402B38 /* AppDelegate.swift */; };
 		04FA218825AFF2C900402B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA218725AFF2C900402B38 /* SceneDelegate.swift */; };
 		04FA218A25AFF2C900402B38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA218925AFF2C900402B38 /* ViewController.swift */; };
@@ -60,6 +64,10 @@
 		040B165F25B18C5500F01948 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		0455FAF225B51AE100DEC598 /* SecondPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPage.swift; sourceTree = "<group>"; };
 		0455FAF525B556C800DEC598 /* SecondCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCollectionView.swift; sourceTree = "<group>"; };
+		0455FAFF25B6AD0600DEC598 /* CollectionView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView1.swift; sourceTree = "<group>"; };
+		0455FB0325B6AD2700DEC598 /* CollectionViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController1.swift; sourceTree = "<group>"; };
+		0455FB0725B6DEC300DEC598 /* UICollectionViewFlowLayout1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlowLayout1.swift; sourceTree = "<group>"; };
+		0455FB0B25B6E1ED00DEC598 /* CollectionViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController2.swift; sourceTree = "<group>"; };
 		04FA218225AFF2C900402B38 /* snapkit-study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "snapkit-study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FA218525AFF2C900402B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04FA218725AFF2C900402B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +128,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0455FAFE25B6ACCC00DEC598 /* CollectionView1 */ = {
+			isa = PBXGroup;
+			children = (
+				0455FAFF25B6AD0600DEC598 /* CollectionView1.swift */,
+				0455FB0325B6AD2700DEC598 /* CollectionViewController1.swift */,
+			);
+			path = CollectionView1;
+			sourceTree = "<group>";
+		};
+		0455FB0A25B6E13C00DEC598 /* CollectionView2 */ = {
+			isa = PBXGroup;
+			children = (
+				0455FB0725B6DEC300DEC598 /* UICollectionViewFlowLayout1.swift */,
+				0455FB0B25B6E1ED00DEC598 /* CollectionViewController2.swift */,
+			);
+			path = CollectionView2;
+			sourceTree = "<group>";
+		};
 		04FA217925AFF2C900402B38 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +166,8 @@
 		04FA218425AFF2C900402B38 /* snapkit-study */ = {
 			isa = PBXGroup;
 			children = (
+				0455FB0A25B6E13C00DEC598 /* CollectionView2 */,
+				0455FAFE25B6ACCC00DEC598 /* CollectionView1 */,
 				04FA218525AFF2C900402B38 /* AppDelegate.swift */,
 				04FA218725AFF2C900402B38 /* SceneDelegate.swift */,
 				04FA218925AFF2C900402B38 /* ViewController.swift */,
@@ -270,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0455FB0425B6AD2700DEC598 /* CollectionViewController1.swift in Sources */,
 				04FA21C325AFF2DF00402B38 /* ConstraintMakerPriortizable.swift in Sources */,
 				04FA21C425AFF2DF00402B38 /* ConstraintAttributes.swift in Sources */,
 				04FA21D725AFF2DF00402B38 /* ConstraintMaker.swift in Sources */,
@@ -281,18 +310,21 @@
 				04FA21DA25AFF2DF00402B38 /* ConstraintView+Extensions.swift in Sources */,
 				04FA21CA25AFF2DF00402B38 /* ConstraintMakerExtendable.swift in Sources */,
 				04FA21DB25AFF2DF00402B38 /* ConstraintItem.swift in Sources */,
+				0455FB0C25B6E1ED00DEC598 /* CollectionViewController2.swift in Sources */,
 				04FA21D525AFF2DF00402B38 /* ConstraintOffsetTarget.swift in Sources */,
 				04FA21E325AFF2DF00402B38 /* ConstraintMakerRelatable.swift in Sources */,
 				04FA21CE25AFF2DF00402B38 /* ConstraintConfig.swift in Sources */,
 				04FA218A25AFF2C900402B38 /* ViewController.swift in Sources */,
 				04FA21D925AFF2DF00402B38 /* ConstraintLayoutGuideDSL.swift in Sources */,
 				04FA21D125AFF2DF00402B38 /* ConstraintLayoutGuide.swift in Sources */,
+				0455FB0825B6DEC300DEC598 /* UICollectionViewFlowLayout1.swift in Sources */,
 				04FA21D825AFF2DF00402B38 /* ConstraintRelation.swift in Sources */,
 				04FA21CC25AFF2DF00402B38 /* ConstraintInsetTarget.swift in Sources */,
 				04FA21C125AFF2DF00402B38 /* LayoutConstraintItem.swift in Sources */,
 				0455FAF625B556C800DEC598 /* SecondCollectionView.swift in Sources */,
 				04FA21E125AFF2DF00402B38 /* ConstraintDirectionalInsets.swift in Sources */,
 				04FA21DC25AFF2DF00402B38 /* Constraint.swift in Sources */,
+				0455FB0025B6AD0600DEC598 /* CollectionView1.swift in Sources */,
 				04FA21DE25AFF2DF00402B38 /* ConstraintRelatableTarget.swift in Sources */,
 				04FA21CD25AFF2DF00402B38 /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				04FA21C725AFF2DF00402B38 /* ConstraintInsets.swift in Sources */,
