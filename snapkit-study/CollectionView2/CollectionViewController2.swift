@@ -15,7 +15,7 @@ class CollectionViewController2: UIViewController  {
         super.viewDidLoad()
         
         //创建瀑布流视图布局类
-        let layout = WaterFallLayout(itemCount: 300)
+        let layout = WaterFallLayout()
         layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 30
         //创建集合视图
@@ -33,7 +33,7 @@ extension CollectionViewController2: UICollectionViewDataSource, UICollectionVie
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 300
+        return 100
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

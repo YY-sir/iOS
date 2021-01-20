@@ -9,7 +9,7 @@ import UIKit
  
 class WaterFallLayout: UICollectionViewFlowLayout {
 //    封装一个属性，用来设置item的个数
-    let itemCount:Int
+    var itemCount:Int
 //    添加一个数组属性，用来存放每个item的布局信息
     var attributeArray:Array<UICollectionViewLayoutAttributes>?
 //    实现必要的构造方法
@@ -18,12 +18,13 @@ class WaterFallLayout: UICollectionViewFlowLayout {
         super.init(coder:aDecoder)
     }
 //    自定义一个初始化构造方法
-    init(itemCount:Int) {
-        self.itemCount = itemCount
+    override init() {
+        self.itemCount = 0
         super.init()
     }
     
     override func prepare() {
+        self.itemCount = (self.collectionView?.numberOfItems(inSection: 0))!
         //调用父类的准备方法
         super.prepare()
         //设置为竖直布局
