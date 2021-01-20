@@ -86,12 +86,15 @@ extension SecondCollectionView: UICollectionViewDataSource, UICollectionViewDele
         let cellIndexPath = self.collectionView.indexPath(for: cell)
         print("点击对应的框框\(String(describing: cellIndexPath))")
         //
-        if cellIndexPath == [0,0]{
+        if cellIndexPath == [0, 0]{
             let cvc1 = CollectionViewController1()
             self.firstViewController()?.navigationController?.pushViewController(cvc1, animated: true)
         }else if cellIndexPath == [0, 1]{
             let cvc2 = CollectionViewController2()
             self.firstViewController()?.navigationController?.pushViewController(cvc2, animated: true)
+        }else if cellIndexPath == [0, 2]{
+            let cvc3 = CollectionViewController3()
+            self.firstViewController()?.navigationController?.pushViewController(cvc3, animated: true)
         }
         
     }

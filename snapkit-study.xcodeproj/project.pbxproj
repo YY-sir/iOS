@@ -14,7 +14,8 @@
 		0455FB0425B6AD2700DEC598 /* CollectionViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455FB0325B6AD2700DEC598 /* CollectionViewController1.swift */; };
 		0455FB0825B6DEC300DEC598 /* UICollectionViewFlowLayout1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455FB0725B6DEC300DEC598 /* UICollectionViewFlowLayout1.swift */; };
 		0455FB0C25B6E1ED00DEC598 /* CollectionViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455FB0B25B6E1ED00DEC598 /* CollectionViewController2.swift */; };
-		0489720925B80B090090BE00 /* circleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489720825B80B090090BE00 /* circleLayout.swift */; };
+		0489720925B80B090090BE00 /* CircleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489720825B80B090090BE00 /* CircleLayout.swift */; };
+		0489720E25B81B6A0090BE00 /* CollectionViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489720D25B81B6A0090BE00 /* CollectionViewController3.swift */; };
 		04FA218625AFF2C900402B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA218525AFF2C900402B38 /* AppDelegate.swift */; };
 		04FA218825AFF2C900402B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA218725AFF2C900402B38 /* SceneDelegate.swift */; };
 		04FA218A25AFF2C900402B38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA218925AFF2C900402B38 /* ViewController.swift */; };
@@ -69,7 +70,8 @@
 		0455FB0325B6AD2700DEC598 /* CollectionViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController1.swift; sourceTree = "<group>"; };
 		0455FB0725B6DEC300DEC598 /* UICollectionViewFlowLayout1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlowLayout1.swift; sourceTree = "<group>"; };
 		0455FB0B25B6E1ED00DEC598 /* CollectionViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController2.swift; sourceTree = "<group>"; };
-		0489720825B80B090090BE00 /* circleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circleLayout.swift; sourceTree = "<group>"; };
+		0489720825B80B090090BE00 /* CircleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLayout.swift; sourceTree = "<group>"; };
+		0489720D25B81B6A0090BE00 /* CollectionViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController3.swift; sourceTree = "<group>"; };
 		04FA218225AFF2C900402B38 /* snapkit-study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "snapkit-study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FA218525AFF2C900402B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04FA218725AFF2C900402B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,7 +153,8 @@
 		0489720725B8099A0090BE00 /* CollectionView3 */ = {
 			isa = PBXGroup;
 			children = (
-				0489720825B80B090090BE00 /* circleLayout.swift */,
+				0489720825B80B090090BE00 /* CircleLayout.swift */,
+				0489720D25B81B6A0090BE00 /* CollectionViewController3.swift */,
 			);
 			path = CollectionView3;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				04FA21DF25AFF2DF00402B38 /* LayoutConstraint.swift in Sources */,
 				04FA21D325AFF2DF00402B38 /* Typealiases.swift in Sources */,
 				04FA21DA25AFF2DF00402B38 /* ConstraintView+Extensions.swift in Sources */,
+				0489720E25B81B6A0090BE00 /* CollectionViewController3.swift in Sources */,
 				04FA21CA25AFF2DF00402B38 /* ConstraintMakerExtendable.swift in Sources */,
 				04FA21DB25AFF2DF00402B38 /* ConstraintItem.swift in Sources */,
 				0455FB0C25B6E1ED00DEC598 /* CollectionViewController2.swift in Sources */,
@@ -343,7 +347,7 @@
 				04FA218825AFF2C900402B38 /* SceneDelegate.swift in Sources */,
 				0455FAF325B51AE100DEC598 /* SecondPage.swift in Sources */,
 				04FA21D625AFF2DF00402B38 /* ConstraintMakerEditable.swift in Sources */,
-				0489720925B80B090090BE00 /* circleLayout.swift in Sources */,
+				0489720925B80B090090BE00 /* CircleLayout.swift in Sources */,
 				04FA21E025AFF2DF00402B38 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				04FA21C625AFF2DF00402B38 /* ConstraintPriorityTarget.swift in Sources */,
 				04FA21D425AFF2DF00402B38 /* ConstraintConstantTarget.swift in Sources */,
