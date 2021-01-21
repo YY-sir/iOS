@@ -51,6 +51,7 @@ class CircleLayout: UICollectionViewFlowLayout {
             attris.center = CGPoint(x: CGFloat(itemx), y: CGFloat(itemy))
             self.attributeArray?.append(attris)
         }
+        
     }
     //  将item的frame信息数组返回
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

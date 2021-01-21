@@ -57,5 +57,8 @@ private class CollectionViewController3Cell: UICollectionViewCell {
             make.size.equalToSuperview()
         }
         b1.backgroundColor = UIColor(red: CGFloat(arc4random()%255)/255, green: CGFloat(arc4random()%255)/255, blue: CGFloat(arc4random()%255)/255, alpha: 1)
+        
+        b1.layer.cornerRadius = 25
+        b1.clipsToBounds = true
     }
 }

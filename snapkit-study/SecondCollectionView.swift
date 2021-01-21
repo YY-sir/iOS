@@ -95,6 +95,9 @@ extension SecondCollectionView: UICollectionViewDataSource, UICollectionViewDele
         }else if cellIndexPath == [0, 2]{
             let cvc3 = CollectionViewController3()
             self.firstViewController()?.navigationController?.pushViewController(cvc3, animated: true)
+        }else if cellIndexPath == [0, 3]{
+            let cvc4 = CollectionViewController4()
+            self.firstViewController()?.navigationController?.pushViewController(cvc4, animated: true)
         }
         
     }
