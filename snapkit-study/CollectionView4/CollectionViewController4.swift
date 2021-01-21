@@ -23,12 +23,12 @@ class CollectionViewController4: UIViewController {
     
 }
 
-extension CollectionViewController4: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CollectionViewController4: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -42,6 +42,14 @@ extension CollectionViewController4: UICollectionViewDataSource, UICollectionVie
         return cell
     }
     
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //小于半屏 则放到最后一屏多半屏
+        if scrollView.contentOffset.y < 200 {
+            scrollView.contentOffset = CGPoint(x: 0, y: scrollView.contentOffset.y + 10 * 400)
+            //大于最后一屏多一屏 放回第一屏
+        }else if scrollView.contentOffset.y > 11 * 400{
+            scrollView.contentOffset = CGPoint(x: 0, y: scrollView.contentOffset.y - 10 * 400)
+        }
+    }
     
 }
